@@ -22,7 +22,29 @@ const style = {
   boxShadow: 24,
   borderRadius: "10px",
 };
-
+const topStyle = {
+  display: "flex",
+  backgroundColor: "#050e2d",
+  justifyContent: "space-between",
+  p: 2,
+  borderTopRightRadius: 10,
+  borderTopLeftRadius: 10,
+};
+const bottomStyle = {
+  display: "flex",
+  flexDirection: "column",
+  padding: "40px",
+  backgroundColor: "#f8fafb",
+  borderBottomRightRadius: 10,
+  borderBottomLeftRadius: 10,
+};
+const formControlStyle = {
+  pt: "8px",
+  minWidth: 150,
+  width: "100%",
+  marginInlineEnd: "8px",
+  marginBottom: "10px",
+};
 const emptyUser = {
   fullName: "",
   userName: "",
@@ -51,33 +73,21 @@ export default function BasicModal({
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Box
-            sx={{
-              display: "flex",
-              backgroundColor: "#050e2d",
-              justifyContent: "space-between",
-              p: 2,
-              borderTopRightRadius: 10,
-              borderTopLeftRadius: 10,
-            }}
-          >
+          <Box sx={topStyle}>
             <Typography sx={{ fontSize: "25px", color: "white" }}>
               Add New User
             </Typography>
-            <Button sx={{ color: "white" }} onClick={toggleModal}>
+            <Button
+              sx={{ color: "white" }}
+              onClick={() => {
+                setUser(emptyUser);
+                toggleModal();
+              }}
+            >
               <CloseIcon />
             </Button>
           </Box>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              padding: "40px",
-              backgroundColor: "#f8fafb",
-              borderBottomRightRadius: 10,
-              borderBottomLeftRadius: 10,
-            }}
-          >
+          <Box sx={bottomStyle}>
             <Typography sx={{ fontSize: "17px", fontWeight: "600" }}>
               Full Name
             </Typography>
@@ -117,16 +127,7 @@ export default function BasicModal({
             <Typography sx={{ fontSize: "17px", fontWeight: "600" }}>
               User Group
             </Typography>
-            <FormControl
-              sx={{
-                pt: "8px",
-                minWidth: 150,
-                width: "100%",
-                marginInlineEnd: "8px",
-                marginBottom: "10px",
-              }}
-              size="small"
-            >
+            <FormControl sx={formControlStyle} size="small">
               <InputLabel id="demo-simple-select-label" sx={{ pt: "8px" }}>
                 User Group
               </InputLabel>
@@ -147,16 +148,7 @@ export default function BasicModal({
             <Typography sx={{ fontSize: "17px", fontWeight: "600" }}>
               Assign Profile
             </Typography>
-            <FormControl
-              sx={{
-                pt: "8px",
-                minWidth: 150,
-                width: "100%",
-                marginInlineEnd: "8px",
-                marginBottom: "10px",
-              }}
-              size="small"
-            >
+            <FormControl sx={formControlStyle} size="small">
               <InputLabel id="demo-simple-select-label" sx={{ pt: "8px" }}>
                 User Profile
               </InputLabel>

@@ -19,6 +19,28 @@ import BlockIcon from "@mui/icons-material/Block";
 import LockIcon from "@mui/icons-material/Lock";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
+const iconStyles = {
+  backgroundColor: "#e7e9ef",
+  borderRadius: "4px",
+  border: "5px solid #e7e9ef",
+  boxSizing: "content-box",
+  marginInlineEnd: "7px",
+};
+const buttonStyles = {
+  backgroundColor: "#e7e9ef",
+  borderRadius: "4px",
+  color: "black",
+  marginInlineEnd: "7px",
+  textTransform: "none",
+  ":hover": {
+    backgroundColor: "#e7e9ef",
+  },
+};
+const underlineButtonStyle = {
+  textTransform: "none",
+  color: "black",
+  textDecoration: "underline",
+};
 export default function Filters({ getSearchFilter, children }) {
   const [value, setValue] = React.useState(null);
   const [userStatusValue, setUserStatusValue] = React.useState("");
@@ -116,15 +138,7 @@ export default function Filters({ getSearchFilter, children }) {
             />
           </LocalizationProvider>
 
-          <Button
-            sx={{
-              textTransform: "none",
-              color: "black",
-              textDecoration: "underline",
-            }}
-          >
-            All Filters
-          </Button>
+          <Button sx={underlineButtonStyle}>All Filters</Button>
         </Box>
         <Box
           sx={{
@@ -133,79 +147,13 @@ export default function Filters({ getSearchFilter, children }) {
             padding: "10px",
           }}
         >
-          <EditIcon
-            sx={{
-              backgroundColor: "#e7e9ef",
-              borderRadius: "4px",
-              border: "5px solid #e7e9ef",
-              boxSizing: "content-box",
-              marginInlineEnd: "7px",
-            }}
-          />
-          <BlockIcon
-            sx={{
-              backgroundColor: "#e7e9ef",
-              borderRadius: "4px",
-              border: "5px solid #e7e9ef",
-              boxSizing: "content-box",
-              marginInlineEnd: "7px",
-            }}
-          />
-          <LockIcon
-            sx={{
-              backgroundColor: "#e7e9ef",
-              borderRadius: "4px",
-              border: "5px solid #e7e9ef",
-              boxSizing: "content-box",
-              marginInlineEnd: "7px",
-            }}
-          />
-          <Button
-            sx={{
-              backgroundColor: "#e7e9ef",
-              borderRadius: "4px",
-              color: "black",
-              marginInlineEnd: "7px",
-              textTransform: "none",
-              ":hover": {
-                backgroundColor: "#e7e9ef",
-              },
-            }}
-          >
-            Assign to Profile
-          </Button>
-          <Button
-            sx={{
-              backgroundColor: "#e7e9ef",
-              borderRadius: "4px",
-              color: "black",
-              marginInlineEnd: "7px",
-              textTransform: "none",
-              ":hover": {
-                backgroundColor: "#e7e9ef",
-              },
-            }}
-          >
-            Assign to Group
-          </Button>
-          <MoreVertIcon
-            sx={{
-              backgroundColor: "#e7e9ef",
-              borderRadius: "4px",
-              border: "5px solid #e7e9ef",
-              boxSizing: "content-box",
-              marginInlineEnd: "5px",
-            }}
-          />
-          <Button
-            sx={{
-              textTransform: "none",
-              color: "black",
-              textDecoration: "underline",
-            }}
-          >
-            UnSelect All
-          </Button>
+          <EditIcon sx={iconStyles} />
+          <BlockIcon sx={iconStyles} />
+          <LockIcon sx={iconStyles} />
+          <Button sx={buttonStyles}>Assign to Profile</Button>
+          <Button sx={buttonStyles}>Assign to Group</Button>
+          <MoreVertIcon sx={iconStyles} />
+          <Button sx={underlineButtonStyle}>UnSelect All</Button>
         </Box>
         {children}
       </Box>
