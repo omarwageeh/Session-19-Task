@@ -2,7 +2,6 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import GridToolbar from "./Filters";
-import { UndoRounded } from "@mui/icons-material";
 
 const columns = [
   {
@@ -137,10 +136,13 @@ export default function DataGridDemo({ user, toggleModal }) {
   React.useEffect(() => {
     if (user !== null) {
       if (user.id === undefined) {
-        setRowsData([...rowsData, { id: rowsData.length + 1, ...user }]);
-        rows.push(user);
+        setRowsData((rowsData) => [
+          ...rowsData,
+          { id: rowsData.length + 1, ...user },
+        ]);
+        rows = [...rows, { id: rows.length + 1, ...user }];
       } else {
-        setRowsData(
+        setRowsData((rowsData) =>
           rowsData.map((item) => {
             if (item.id === user.id) return user;
             else return item;
