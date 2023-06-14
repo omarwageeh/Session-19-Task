@@ -12,7 +12,6 @@ export default function Layout() {
   const toggleModal = (edit, row) => {
     setShown((currnetShown) => {
       if (currnetShown === true) {
-        setUser(null);
         setEdit(false);
       }
       return !currnetShown;
