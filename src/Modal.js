@@ -40,7 +40,7 @@ export default function BasicModal({
   const [user, setUser] = React.useState(emptyUser);
   React.useEffect(() => {
     if (userToEdit !== "") setUser(userToEdit);
-  }, [edit]);
+  }, [edit, userToEdit]);
 
   return (
     <div>
@@ -82,7 +82,7 @@ export default function BasicModal({
               Full Name
             </Typography>
             <TextField
-              label="Enter full name"
+              placeholder="Enter full name"
               variant="outlined"
               value={user.fullName}
               onChange={(e) => {
@@ -94,7 +94,7 @@ export default function BasicModal({
               User Name
             </Typography>
             <TextField
-              label="Enter username"
+              placeholder="Enter username"
               variant="outlined"
               value={user.userName}
               onChange={(e) => {
@@ -106,7 +106,7 @@ export default function BasicModal({
               Email Address
             </Typography>
             <TextField
-              label="Enter user email address"
+              placeholder="Enter user email address"
               variant="outlined"
               value={user.email}
               onChange={(e) => {
