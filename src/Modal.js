@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Box,
   Typography,
@@ -9,7 +9,6 @@ import {
   Modal,
   InputLabel,
   Button,
-  Divider,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
