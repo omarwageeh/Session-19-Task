@@ -11,6 +11,7 @@ import {
   Button,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import dayjs from "dayjs";
 
 const style = {
   position: "absolute",
@@ -51,6 +52,7 @@ const emptyUser = {
   email: "",
   profile: "",
   group: "",
+  createdOn: "",
 };
 export default function BasicModal({
   shown,
@@ -223,6 +225,7 @@ export default function BasicModal({
                     ":hover": { backgroundColor: "green " },
                   }}
                   onClick={() => {
+                    user.createdOn = dayjs(new Date().toLocaleDateString());
                     addUser(user);
                     setUser(emptyUser);
                     toggleModal();
